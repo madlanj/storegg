@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 import React from "react";
 import Footer from "./Footer";
 import MenuItem from "./MenuItem";
@@ -16,7 +18,12 @@ interface SidebarProps {
 }
 export default function Sidebar(props: SidebarProps) {
   const { activeMenu } = props;
+  const router = useRouter();
 
+  const onLogout = () => {
+    Cookies.remove("token");
+    router.push("/sign-in");
+  };
   return (
     <section className="sidebar">
       <div className="content pt-50 pb-30 ps-30">
@@ -62,7 +69,7 @@ export default function Sidebar(props: SidebarProps) {
             title="Log Out"
             icon="ic-menu-logout"
             active={activeMenu === "logout"}
-            href="/sign-in"
+            onClick={onLogout}
           />
         </div>
         <Footer />

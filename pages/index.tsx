@@ -1,4 +1,5 @@
 import AOS from "aos";
+import Head from "next/head";
 import { useEffect } from "react";
 import FeaturedGame from "../components/organisms/FeaturedGame";
 import Footer from "../components/organisms/Footer";
@@ -14,6 +15,19 @@ export default function Home() {
   }, []);
   return (
     <>
+      <Head>
+        <title>Store GameJaz</title>
+        <meta
+          name="description"
+          content="Kami meyediakan voucher game untuk membantu ana menjadi pemenang"
+        />
+        <meta property="og:title" content="Store GameJaz" />
+        <meta
+          property="og:desc"
+          content="Kami meyediakan voucher game untuk membantu ana menjadi pemenang"
+        />
+      </Head>
+
       <Navbar />
       <MainBanner />
       <TransactionStep />
